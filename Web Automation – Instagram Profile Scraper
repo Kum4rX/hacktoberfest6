@@ -1,0 +1,12 @@
+# insta_scraper.py
+import requests
+from bs4 import BeautifulSoup
+
+def get_instagram_profile(username):
+    url = f"https://www.instagram.com/{username}/"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    title = soup.title.string
+    print(f"Profile Info: {title}")
+
+get_instagram_profile("debugwithshubham")
